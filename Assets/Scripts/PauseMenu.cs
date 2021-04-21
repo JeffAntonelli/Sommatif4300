@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
 
-    public GameObject pauseMenuUI;
+    [SerializeField] private GameObject pauseMenuUI_;
     // Update is called once per frame
     void Update()
     {
@@ -26,13 +27,13 @@ public class PauseMenu : MonoBehaviour
 
     void Paused()
     {
-        pauseMenuUI.SetActive(true);
+        pauseMenuUI_.SetActive(true);
         Time.timeScale = 0;
         gameIsPaused = true;
     }
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        pauseMenuUI_.SetActive(false);
         Time.timeScale = 1;
         gameIsPaused = false;
     }
@@ -48,6 +49,6 @@ public class PauseMenu : MonoBehaviour
     {
         DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
         Resume();
-        SceneManager.LoadScene("JeffScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

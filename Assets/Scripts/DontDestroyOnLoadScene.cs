@@ -9,7 +9,15 @@ public class DontDestroyOnLoadScene : MonoBehaviour
 
     private void Awake() 
     {
-         instance = this;
+        if (!instance)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+         
 
         foreach (var element in objects)
         {
