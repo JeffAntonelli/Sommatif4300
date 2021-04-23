@@ -9,11 +9,10 @@ public class GrabChariot : MonoBehaviour
 {
     [SerializeField] private Text GrabText_;
     [SerializeField] private LayerMask chariotMask_;
-    [SerializeField] private float distance;
+    [SerializeField] private float distance = 1f;
     private bool grabbed_;
     private RaycastHit2D hit;
     private GameObject chariot_;
-    
 
     private void Start()
     {
@@ -26,7 +25,7 @@ public class GrabChariot : MonoBehaviour
         
         
             Physics2D.queriesStartInColliders = false;
-             hit =   Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distance, chariotMask_);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distance, chariotMask_);
 
              if (hit.collider != null && hit.collider.gameObject.tag == "Chariot" && Input.GetKey(KeyCode.Space))
              {
@@ -48,6 +47,6 @@ public class GrabChariot : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawLine (transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * distance);
+        Gizmos.DrawLine( transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * distance);
     }
 }

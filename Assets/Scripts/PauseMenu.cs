@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Build.Content;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -47,7 +44,7 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartScene()
     {
-        DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
+        //DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
         Resume();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
