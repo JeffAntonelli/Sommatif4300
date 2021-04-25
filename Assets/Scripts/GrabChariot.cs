@@ -20,7 +20,7 @@ public class GrabChariot : MonoBehaviour
 
     private void Start()
     {
-       // GrabText_.gameObject.SetActive(false);
+       
 
     }
     // Update is called once per frame
