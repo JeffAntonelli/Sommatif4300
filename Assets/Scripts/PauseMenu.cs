@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
     private static bool gameIsPaused_ = false;
 
+    [SerializeField] private GameObject pauseFirstButton;
+
     [SerializeField] private GameObject pauseMenuUI_;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel"))
         {
             if (gameIsPaused_)
             {
@@ -27,6 +30,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI_.SetActive(true);
         Time.timeScale = 0;
         gameIsPaused_ = true;
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
     public void Resume()
     {
