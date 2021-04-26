@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc93c5d416f8a14fbd7a02d70c4c3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBox_: {fileID: 0}
+  textNPC_: Hello ^^
 --- !u!50 &1347848478133410110
 Rigidbody2D:
   serializedVersion: 4
